@@ -59,3 +59,19 @@ typings/
 
 # next.js build output
 .next
+
+# /client
+cient/.DS_Store
+cient/node_modules/
+cient//dist/
+cient/npm-debug.log*
+cient/yarn-debug.log*
+cient/yarn-error.log*
+
+# Editor directories and files
+client/.idea
+client/.vscode
+client/*.suo
+client/*.ntvs*
+client/*.njsproj
+client/*.sln
