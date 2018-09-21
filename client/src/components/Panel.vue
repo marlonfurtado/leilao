@@ -18,7 +18,7 @@
       <form @submit.prevent="sendMessage">
         <div class="gorm-group">
           <label for="user">Usuário:</label>
-          <input type="text" :disabled="(user!==null&&values.length>0)" v-model="user" class="form-control">
+          <input type="text" :disabled="(user!==null&&values.length>0&&locked)" v-model="user" class="form-control">
         </div>
         <div class="gorm-group pb-3">
           <label for="value">Valor:</label>
@@ -40,6 +40,7 @@ export default {
       socket : io('localhost:3000'),
       date: null,
       user: null,
+      locked: null,
       value: null,
       values: [],
       money: {
@@ -51,6 +52,7 @@ export default {
   },
   methods: {
     sendMessage(e) {
+      this.locked = true
       this.socket.emit('SEND_MESSAGE', {
         user: this.user,
         value: this.value,
